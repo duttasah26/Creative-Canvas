@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "k/ES08rHo4E=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SahilDutta\\Documents\\.NET CORE PROJECTS\\CreativeCanvas\\EnterpriseProject.Entities\\EnterpriseProject.Entities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SahilDutta\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
