@@ -1,0 +1,54 @@
+﻿@model List<EnterpriseProject.Entities.Project>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<section class="jumbotron text-center">
+    <h1 class="jumbotron-heading">Public Projects</h1>
+    <p class="lead text-muted">A list of all the wonderful projects submitted by our community.</p>
+</section>
+
+
+<div class="container-fluid py-5 bg-light">
+    <div class="row">
+        @foreach(var project in Model)
+        {
+            if (project.IsPublic == true)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src=@project.ImagePath class="card-img-top project-image" alt="Image" />
+                        <div class="card-body">
+                            <h5 class="card-title">@project.ProjectTitle</h5>
+                            <p class="card-text">@project.Description</p>
+                            <p>
+                                <strong>By:</strong>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a href="@Url.Action("Profile", "User", new { userId = project.User.UserId })">@project.User.UserName</a>
+                                }
+                                else
+                                {
+                                    <!-- If not authenticated, redirect to the login page directly when username is clicked -->
+                                    <a href="@Url.Action("","login")">@project.User.UserName</a>
+                                }
+                            </p>
+
+                            <div class="container text-center">
+                                <a href="@Url.Action("ViewProject", "Project", new { id = project.ProjectId })" class="btn btn-dark btn-sm">View Project</a>
+                            </div>
+
+                            <!--<div class="container text-center">
+                                <a href="@Url.Action("EditProject", "Project", new { id = project.ProjectId })" class="btn btn-dark btn-sm">Edit</a>
+                                <a href="@Url.Action("DeleteProject", "Project", new { id = project.ProjectId })" class="btn btn-dark btn-sm">Delete</a>
+                            </div> -->
+
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

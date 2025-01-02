@@ -1,0 +1,10 @@
+﻿@model EnterpriseProject.Entities.Project
+
+<h1>Confirm Delete</h1>
+
+<p>Are you sure you want to delete the project "@Model.ProjectTitle"?</p>
+
+<form method="post" action="@Url.Action("DeleteProjectConfirmed", new { id = Model.ProjectId })">
+    <button type="submit" class="btn btn-danger">Confirm</button>
+    <a href="@Url.Action("ViewProjects")" class="btn btn-secondary">Cancel</a>
+</form>
